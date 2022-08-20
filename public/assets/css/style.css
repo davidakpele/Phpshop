@@ -1,0 +1,249 @@
+ .dataTables_wrapper .row{ width:100% }
+        table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after{ display:none }
+        .dataTables_length select, .dataTables_filter input[type=search]{ height:30px }
+        .dataTables_length{ float:left }
+        .dataTables_filter{ float:right }
+        #example1 th, #example11 th{ font-weight:bold }
+        .modal-content .btn-primary{ height: 30px; font-size: 12px; }
+        .modal-content input[type=text]{ height: 30px; }
+        .iconset .fa { font-size: 13px !important; }
+        .blink_me{
+            animation:blinker 1s linear infinite;color:red
+        }
+        .blink_me:hover{
+            animation:blinker 0s linear infinite;color:red
+        }
+        @keyframes blinker{
+            50%{opacity:0}
+        }
+        .mb-10{
+          margin-bottom:0px;
+        }
+        .pricing-table-product-box {
+            -webkit-box-shadow: 0 4px 9px 0 rgba(67,65,79,.1);
+            box-shadow: 0 4px 9px 0 rgba(67,65,79,.1);
+            border: solid 2px #f5f5f5;
+        }
+        .harga {
+            font-size: 3em;
+            font-weight: 700;
+            line-height: .8em;
+          display:inline-block;
+        }
+        .currency {
+            font-size: 1em;
+            font-weight: 700;
+            margin-top: .2em;
+          display:inline-block;
+        }
+        .waktu {
+            font-size: .7em;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            margin: .3em;
+          display:inline-block;
+        }
+        .waktu_block{
+          display:inline-block;
+        }
+        #Back-to-top { text-align: center; z-index: 99999; position: fixed; bottom: 70px; right: 30px; cursor: pointer; display: none; opacity: 0.7; } 
+        #Back-to-top:hover { opacity: 1; } 
+        .badge-secondary {
+            color: #fff;
+            background-color: #dd2400;
+            padding: 5px 7px 4px 7px;
+        }
+        .notif .nav-tabs .nav-link {
+            background: #3cd03c;
+            color: #fff;
+            border-top:1px solid #e3e3e3 !important;
+            border-left:1px solid #e3e3e3 !important;
+            border-right:1px solid #e3e3e3 !important;
+        }
+        .notif .badge-secondary {
+            color: #fff;
+            background-color: #00b30e;
+            padding: 5px 7px 4px 7px;
+        }
+        .notif .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057 !important;
+            background-color: #fff !important;
+        }
+        .penjualan .nav-tabs .nav-link {
+            background: #ff9900;
+            color: #fff;
+            border-top:1px solid #e3e3e3 !important;
+            border-left:1px solid #e3e3e3 !important;
+            border-right:1px solid #e3e3e3 !important;
+        }
+        .penjualan .badge-secondary {
+            color: #fff;
+            background-color: #dc8400;
+            padding: 5px 7px 4px 7px;
+        }
+        .penjualan .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057 !important;
+            background-color: #fff !important;
+        }
+        .container .ps-section__content{
+            min-height:650px;
+        }
+        input[type=number]::-webkit-inner-spin-button {
+            opacity: 1
+        }
+        .form-control{
+            border-bottom: 1px solid #cecece;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            background-color: #f9f9f9;
+        }
+        .multiselect-container{
+            width: 100%;
+            font-size: 13px;
+        }
+        button.multiselect {
+            font-size: 14px;
+        }
+        .multiselect-container>li {
+            border-bottom: 1px dotted #e3e3e3;
+        }
+
+        .form-sm .form-group{
+            margin-bottom: 5px !important;
+        }
+        .form-sm i{
+            margin-left: 10px;
+        }
+        .form-sm .ajax-file-upload{
+            width:100%;
+        }
+
+         .dataTables_wrapper .row{ width:100% }
+        table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after{ display:none }
+        .dataTables_length select, .dataTables_filter input[type=search]{ height:30px }
+        .dataTables_length{ float:left }
+        .dataTables_filter{ float:right }
+        #example1 th, #example11 th{ font-weight:bold }
+        .modal-content .btn-primary{ height: 30px; font-size: 12px; }
+        .modal-content input[type=text]{ height: 30px; }
+        .iconset .fa { font-size: 13px !important; }
+        .blink_me{
+            animation:blinker 1s linear infinite;color:red
+        }
+        .blink_me:hover{
+            animation:blinker 0s linear infinite;color:red
+        }
+        @keyframes blinker{
+            50%{opacity:0}
+        }
+        .mb-10{
+          margin-bottom:0px;
+        }
+        .pricing-table-product-box {
+            -webkit-box-shadow: 0 4px 9px 0 rgba(67,65,79,.1);
+            box-shadow: 0 4px 9px 0 rgba(67,65,79,.1);
+            border: solid 2px #f5f5f5;
+        }
+        .harga {
+            font-size: 3em;
+            font-weight: 700;
+            line-height: .8em;
+          display:inline-block;
+        }
+        .currency {
+            font-size: 1em;
+            font-weight: 700;
+            margin-top: .2em;
+          display:inline-block;
+        }
+        .waktu {
+            font-size: .7em;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            margin: .3em;
+          display:inline-block;
+        }
+        .waktu_block{
+          display:inline-block;
+        }
+        #Back-to-top { text-align: center; z-index: 99999; position: fixed; bottom: 70px; right: 30px; cursor: pointer; display: none; opacity: 0.7; } 
+        #Back-to-top:hover { opacity: 1; } 
+        .badge-secondary {
+            color: #fff;
+            background-color: #dd2400;
+            padding: 5px 7px 4px 7px;
+        }
+        .notif .nav-tabs .nav-link {
+            background: #3cd03c;
+            color: #fff;
+            border-top:1px solid #e3e3e3 !important;
+            border-left:1px solid #e3e3e3 !important;
+            border-right:1px solid #e3e3e3 !important;
+        }
+        .notif .badge-secondary {
+            color: #fff;
+            background-color: #00b30e;
+            padding: 5px 7px 4px 7px;
+        }
+        .notif .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057 !important;
+            background-color: #fff !important;
+        }
+        .penjualan .nav-tabs .nav-link {
+            background: #ff9900;
+            color: #fff;
+            border-top:1px solid #e3e3e3 !important;
+            border-left:1px solid #e3e3e3 !important;
+            border-right:1px solid #e3e3e3 !important;
+        }
+        .penjualan .badge-secondary {
+            color: #fff;
+            background-color: #dc8400;
+            padding: 5px 7px 4px 7px;
+        }
+        .penjualan .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057 !important;
+            background-color: #fff !important;
+        }
+        .container .ps-section__content{
+            min-height:650px;
+        }
+        input[type=number]::-webkit-inner-spin-button {
+            opacity: 1
+        }
+        .form-control{
+            border-bottom: 1px solid #cecece;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            background-color: #f9f9f9;
+        }
+        .multiselect-container{
+            width: 100%;
+            font-size: 13px;
+        }
+        button.multiselect {
+            font-size: 14px;
+        }
+        .multiselect-container>li {
+            border-bottom: 1px dotted #e3e3e3;
+        }
+
+        .form-sm .form-group{
+            margin-bottom: 5px !important;
+        }
+        .form-sm i{
+            margin-left: 10px;
+        }
+        .form-sm .ajax-file-upload{
+            width:100%;
+        }
