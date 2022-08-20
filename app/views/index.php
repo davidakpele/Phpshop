@@ -341,147 +341,30 @@
 				</div>
 				<div class="menu__content">
 					<ul class="menu--dropdown">
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-gift'></i> Musical Instruments & Audio Pro<span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Gitar</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Piano</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Talempong</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-heart'></i> Men's Fashion & Clothing<span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Accessories</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Kid's Fashion</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Shoes</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-bag2'></i> Fashion & Women's Clothing <span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Deep Kiyora</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Medium Kiyora</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-sync'></i> Joints are clean<span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Freezer Burn</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Frigde Cooler</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Wine Cabinets</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-telephone'></i> Jewelry and Accessories <span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Ring</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Watch</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Necklace</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>sdasd</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-credit-card'></i> Jewelry and Watches <span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Wedding Ring</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>White gold</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-rocket'></i> Garden and Kitchen Tools <span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Cookware</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Decoration</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Furniture</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Garden Tools</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class='current-menu-item menu-item-has-children has-mega-menu'>
-							<a href='#'><i class='icon-bubbles'></i> Bags, Luggage & Travel <span class='caret caret-right'></span></a>
-							<div class='mega-menu'>
-								<div class='mega-menu__column'>
-									<ul class='mega-menu__list'>
-										<li class='current-menu-item'>
-											<a href='#'>Car Electronics</a>
-										</li>
-										<li class='current-menu-item'>
-											<a href='#'>Office Electronics</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
+                        <?php foreach ($data['catrow'] as $row):?>
+                        <li class='current-menu-item menu-item-has-children has-mega-menu'>
+                            <a href='#'><i class='icon-gift'></i><?=$row['cat_title']?><span class='caret caret-right'></span></a>
+                            <div class='mega-menu'>
+                                <div class='mega-menu__column'>
+                                    <ul class='mega-menu__list'>
+                                        <?php
+                                            $catid = $row['cat_id'];
+                                            $this->DB = new Database;
+                                            $this->DB->query('SELECT * FROM brands WHERE cat_id =:catid');
+                                            $this->DB->bind(':catid', $catid);
+                                            $brandrow =$this->DB->resultSet();
+                                            if ($brandrow):
+                                                foreach ($brandrow as $brandvalue): ?>
+                                        <li class='current-menu-item'>
+                                            <a href='#'><?=$brandvalue['brand_title']?></a>
+                                        </li>
+                                        <?php endforeach;?>
+                                    <?php endif;?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach;?>
 					</ul>
 				</div>
 			</div>
@@ -572,147 +455,30 @@
 			</div>
 			<div class="menu__content">
 				<ul class="menu--dropdown">
+                    <?php foreach ($data['catrow'] as $row):?>
 					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-gift'></i> Musical Instruments & Audio<span class='caret caret-right'></span></a>
+						<a href='#'><i class='icon-gift'></i><?=$row['cat_title']?><span class='caret caret-right'></span></a>
 						<div class='mega-menu'>
 							<div class='mega-menu__column'>
 								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Gitar</a>
+                                     <?php
+                                        $catid = $row['cat_id'];
+                                        $this->DB = new Database;
+                                        $this->DB->query('SELECT * FROM brands WHERE cat_id =:catid');
+                                        $this->DB->bind(':catid', $catid);
+                                        $brandrow =$this->DB->resultSet();
+                                        if ($brandrow):
+                                            foreach ($brandrow as $brandvalue): ?>
+                                    <li class='current-menu-item'>
+										<a href='#'><?=$brandvalue['brand_title']?></a>
 									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Piano</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Talempong</a>
-									</li>
+									<?php endforeach;?>
+                                <?php endif;?>
 								</ul>
 							</div>
 						</div>
 					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-heart'></i>Men's Fashion & Clothing<span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Accessories</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Kid's Fashion</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Shoes</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-bag2'></i> Fashion & Women's Clothing <span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Deep Kiyora</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Medium Kiyora</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-sync'></i> Sports and Outdoors <span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Freezer Burn</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Frigde Cooler</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Wine Cabinets</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-telephone'></i> Jewelry and Accessories<span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Ring</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Watch</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Necklace</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>sdasd</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-credit-card'></i> Jewelry and Watches<span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Wedding Ring</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>White gold</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-rocket'></i> Garden and Kitchen Tools <span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Cookware</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Decoration</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Furniture</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Garden Tools</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class='current-menu-item menu-item-has-children has-mega-menu'>
-						<a href='#'><i class='icon-bubbles'></i> Bags, Luggage & Travel<span class='caret caret-right'></span></a>
-						<div class='mega-menu'>
-							<div class='mega-menu__column'>
-								<ul class='mega-menu__list'>
-									<li class='current-menu-item'>
-										<a href='#'>Car Electronics</a>
-									</li>
-									<li class='current-menu-item'>
-										<a href='#'>Office Electronics</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
+                    <?php endforeach;?>
 				</ul>
 			</div>
 		</div>
@@ -864,147 +630,31 @@
 	</div>
 	<div class="ps-panel__content">
 		<ul class="menu--mobile">
+             <?php foreach ($data['catrow'] as $row):?>
 			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Jewelry and Accessories</a><span class='sub-toggle'></span>
+				<a href='#'><?=$row['cat_title']?></a><span class='sub-toggle'></span>
 				<div class='mega-menu'>
 					<div class='mega-menu__column'>
 						<ul class='menu-custom'>
+                             <?php
+                                $catid = $row['cat_id'];
+                                $this->DB = new Database;
+                                $this->DB->query('SELECT * FROM brands WHERE cat_id =:catid');
+                                $this->DB->bind(':catid', $catid);
+                                $brandrow =$this->DB->resultSet();
+                                if ($brandrow):
+                                    foreach ($brandrow as $brandvalue): ?>
 							<li class='current-menu-item '>
-								<a href='#'>Necklace</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Watch</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Ring</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>sdasd</a>
-							</li>
+								<a href='#'><?=$brandvalue['brand_title']?></a>
+                            </li>
+                            <?php endforeach;?>
+                        <?php endif;?>
+							
 						</ul>
 					</div>
 				</div>
 			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Fashion & Women's Clothing</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>Medium Kiyora</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Kiyora In</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Men's Fashion & Clothing</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>Accessories</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Kid's Fashion</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Shoes</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Musical Instruments & Audio Pro</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>Gitar</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Piano</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Talempong</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Bags, Luggage & Travel</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>Car Electronics</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Office Electronics</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Jewelry and Watches</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>White gold</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Wedding Ring</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Sports and Outdoors</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>Freezer Burn</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Frigde Cooler</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Wine Cabinets</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
-			<li class='current-menu-item menu-item-has-children has-mega-menu'>
-				<a href='#'>Garden and Kitchen Tools</a><span class='sub-toggle'></span>
-				<div class='mega-menu'>
-					<div class='mega-menu__column'>
-						<ul class='menu-custom'>
-							<li class='current-menu-item '>
-								<a href='#'>Cookware</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Decoration</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Furniture</a>
-							</li>
-							<li class='current-menu-item '>
-								<a href='#'>Garden Tools</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</li>
+            <?php endforeach;?>
 		</ul>
 	</div>
 </div>
@@ -1271,10 +921,11 @@
 			</div>
 			<div class="ps-section__content">
 				<div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="7" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="5" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
-					<div class='ps-product ps-product--inner'>
+					<?php foreach ($data['Productrow'] as $products): ?>
+                    <div class='ps-product ps-product--inner'>
 						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/RV71_27_Jeans_grande.jpg' alt='Aira Instant Triangle- AA94.8 Minty Green'></a>
-							<div class='ps-product__badge out-stock'>Sold out</div>
+							<a href='#'><img src='<?=IMGROOT .$products['product_image']?>' alt='<?=$products['product_keywords']?>'></a>
+							<!-- <div class='ps-product__badge out-stock'>Sold out</div> -->
 							<ul class='ps-product__actions produk-2'>
 								<li>
 									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
@@ -1292,7 +943,7 @@
 								 NGN ₦250,000 <del>350,000</del>
 							</p>
 							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Aira Instant Triangle- AA94.8 Minty Gre,..</a>
+								<a class='ps-product__title' href='#'><?=$products['product_title']?></a>
 								<div class='ps-product__rating'>
 									<select class='ps-rating' data-read-only='true'>
 										<option value='1'></option>
@@ -1314,246 +965,7 @@
 							</div>
 						</div>
 					</div>
-					<div class='ps-product ps-product--inner'>
-						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/Emily_Grey_grande.jpg' alt='Pashmina Instan Rafella - RLN1.2 Gold Maroon'></a>
-							<ul class='ps-product__actions produk-6'>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
-								</li>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Quick View' class='quick_view' data-id='6'><i class='icon-eye'></i></a>
-								</li>
-								<li>
-									<a data-toggle='tooltip' data-placement='top' id='save-6' title='Add to Whishlist'><i class='icon-heart' onclick="save('6',this.id)"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class='ps-product__container'>
-							<p class='ps-product__price sale'>NGN ₦75,000</p>
-							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Pashmina Instan Rafella - RLN1.2 Gold ,..</a>
-								<div class='ps-product__rating'>
-									<select class='ps-rating' data-read-only='true'>
-										<option value='1'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-									</select>
-									<span>0</span>
-								</div>
-								<div class='ps-product__progress-bar ps-progress' data-value='0'>
-									<div class='ps-progress__value'>
-										<span></span>
-									</div>
-									<p>
-										 Terjual : 0 / 34
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class='ps-product ps-product--inner'>
-						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/22.png' alt='Segitiga Instan Madeira - MDB5.3 Sunset'></a>
-							<ul class='ps-product__actions produk-4'>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
-								</li>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Quick View' class='quick_view' data-id='4'><i class='icon-eye'></i></a>
-								</li>
-								<li>
-									<a data-toggle='tooltip' data-placement='top' id='save-4' title='Add to Whishlist'><i class='icon-heart' onclick="save('4',this.id)"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class='ps-product__container'>
-							<p class='ps-product__price sale'>NGN ₦129,900</p>
-							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Segitiga Instan Madeira - MDB5.3 Sunse,..</a>
-								<div class='ps-product__rating'>
-									<select class='ps-rating' data-read-only='true'>
-										<option value='1'>1</option>
-										<option value='1'>2</option>
-										<option value='1'>3</option>
-										<option value='1'>4</option>
-										<option value='2'>5</option>
-									</select>
-									<span>2</span>
-								</div>
-								<div class='ps-product__progress-bar ps-progress' data-value='0'>
-									<div class='ps-progress__value'>
-										<span></span>
-									</div>
-									<p>
-										 Terjual : 0 / 67
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class='ps-product ps-product--inner'>
-						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/gamis5.jpg' alt='Rompi Kurta Hoodie Zip Dark Grey Semi Wol'></a>
-							<ul class='ps-product__actions produk-9'>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
-								</li>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Quick View' class='quick_view' data-id='9'><i class='icon-eye'></i></a>
-								</li>
-								<li>
-									<a data-toggle='tooltip' data-placement='top' id='save-9' title='Add to Whishlist'><i class='icon-heart' onclick="save('9',this.id)"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class='ps-product__container'>
-							<p class='ps-product__price sale'>NGN ₦68,500</p>
-							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Rompi Kurta Hoodie Zip Dark Grey Semi ,..</a>
-								<div class='ps-product__rating'>
-									<select class='ps-rating' data-read-only='true'>
-										<option value='1'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-									</select>
-									<span>0</span>
-								</div>
-								<div class='ps-product__progress-bar ps-progress' data-value='0'>
-									<div class='ps-progress__value'>
-										<span></span>
-									</div>
-									<p>
-										 Terjual : 0 / 9
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class='ps-product ps-product--inner'>
-						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/AD_19_20_Misty_Grey_grande.jpg' alt='Super Segiempat Rebya - RYB6.7 Pink Clover'></a>
-							<ul class='ps-product__actions produk-20'>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
-								</li>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Quick View' class='quick_view' data-id='20'><i class='icon-eye'></i></a>
-								</li>
-								<li>
-									<a data-toggle='tooltip' data-placement='top' id='save-20' title='Add to Whishlist'><i class='icon-heart' onclick="save('20',this.id)"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class='ps-product__container'>
-							<p class='ps-product__price sale'>NGN ₦65,000</p>
-							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Super Segiempat Rebya - RYB6.7 Pink C,..</a>
-								<div class='ps-product__rating'>
-									<select class='ps-rating' data-read-only='true'>
-										<option value='1'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-									</select>
-									<span>0</span>
-								</div>
-								<div class='ps-product__progress-bar ps-progress' data-value='0'>
-									<div class='ps-progress__value'>
-										<span></span>
-									</div>
-									<p>
-										 Terjual : 0 / 12
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class='ps-product ps-product--inner'>
-						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/AYD5_3_Mayra_Pink_grande.jpg' alt='Pashmina Instan Rafella - RLN1.1 Sweet Grey'></a>
-							<ul class='ps-product__actions produk-7'>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
-								</li>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Quick View' class='quick_view' data-id='7'><i class='icon-eye'></i></a>
-								</li>
-								<li>
-									<a data-toggle='tooltip' data-placement='top' id='save-7' title='Add to Whishlist'><i class='icon-heart' onclick="save('7',this.id)"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class='ps-product__container'>
-							<p class='ps-product__price sale'>NGN ₦99,000</p>
-							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Pashmina Instan Rafella - RLN1.1 Sweet,..</a>
-								<div class='ps-product__rating'>
-									<select class='ps-rating' data-read-only='true'>
-										<option value='1'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-									</select>
-									<span>0</span>
-								</div>
-								<div class='ps-product__progress-bar ps-progress' data-value='0'>
-									<div class='ps-progress__value'>
-										<span></span>
-									</div>
-									<p>
-										 Terjual : 0 / 9
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class='ps-product ps-product--inner'>
-						<div class='ps-product__thumbnail'>
-							<a href='#'><img src='<?=ASSETS?>img/gamis4.jpg' alt='Rompi Kurta Hoodie Zip Mentantarei YU-234'></a>
-							<ul class='ps-product__actions produk-11'>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Read More'><i class='icon-bag2'></i></a>
-								</li>
-								<li>
-									<a href='#' data-toggle='tooltip' data-placement='top' title='Quick View' class='quick_view' data-id='11'><i class='icon-eye'></i></a>
-								</li>
-								<li>
-									<a data-toggle='tooltip' data-placement='top' id='save-11' title='Add to Whishlist'><i class='icon-heart' onclick="save('11',this.id)"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class='ps-product__container'>
-							<p class='ps-product__price sale'>NGN ₦89,000</p>
-							<div class='ps-product__content'>
-								<a class='ps-product__title' href='#'>Rompi Kurta Hoodie Zip Mentantarei YU-,..</a>
-								<div class='ps-product__rating'>
-									<select class='ps-rating' data-read-only='true'>
-										<option value='1'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-										<option value='2'></option>
-									</select>
-									<span>0</span>
-								</div>
-								<div class='ps-product__progress-bar ps-progress' data-value='0'>
-									<div class='ps-progress__value'>
-										<span></span>
-									</div>
-									<p>
-										 Terjual : 0 / 23
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <?php endforeach;?>
 				</div>
 			</div>
 		</div>

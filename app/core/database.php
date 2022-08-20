@@ -57,11 +57,6 @@ Class Database{
      * Fetch method returns each row as an object with property names that correspond to the column names returned in the result.
      * @return void
      */  
-    public function fetchObjArr(){
-        $this->execute();
-		return $this->statement->fetchAll(PDO::FETCH_OBJ);
-	}
-	
 	public function PDOFetchOBj(){
         $this->execute();
 		return $this->statement->fetchAll(PDO::FETCH_OBJ);

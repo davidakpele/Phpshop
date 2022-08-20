@@ -12,4 +12,5 @@ require "../app/core/controller.php";
 require "../app/core/app.php";
 // Accessing helpers file
 require "../app/helpers/session_helper.php";
-
+//Accessing Setting methods
+require "../app/helpers/settings.php";

@@ -1,22 +1,32 @@
 <?php 
-
-namespace Core;
-
-class Settings 
-{
-    private static $config =
-    [
-        'version'             => '0.0.1',
-        'default_layout'      => 'default',
-        'db_host'             => '127.0.0.1',
-        'db_name'             => 'midtechserver',
-        'db_user'             => 'root',
-        'db_password'         => '',
-        'login_Cookie_nme'    => 'gJpi42oagyhq2m91041myyt1726b81m6dg90dmwfw9axh48m5bn126bnod8',
-    ];
-
-    public static function get($key){
-        return array_key_exists($key, self::$config)? self::$config[$Key] : NULL;
+    function dnd($data){
+        echo  "<pre>";
+        print_r($data);
+        echo  "<pre>";
+        die();
     }
-}
+    function getUserIP(){
+    // Get real visitor IP behind CloudFlare network
+    if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+        $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        $_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+    }
+    $client  = @$_SERVER['HTTP_CLIENT_IP'];
+    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+    $remote  = $_SERVER['REMOTE_ADDR'];
 
+    if(filter_var($client, FILTER_VALIDATE_IP))
+    {
+        $ip = $client;
+    }
+    elseif(filter_var($forward, FILTER_VALIDATE_IP))
+    {
+        $ip = $forward;
+    }
+    else
+    {
+        $ip = $remote;
+    }
+
+    return $ip;
+}
